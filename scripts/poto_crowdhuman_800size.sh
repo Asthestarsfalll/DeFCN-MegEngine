@@ -1,0 +1,1 @@
+python ./train.py -d "./data/crowdhuamn" -s "./ckpt" -tag 'poto_crowdhuman' -n 4 -b 8 -m False --gn False --aux False --dataset_name 'crowdhuamn'

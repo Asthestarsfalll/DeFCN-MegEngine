@@ -1,0 +1,1 @@
+python ./train.py -d "/home/ray/data/" -s "/home/ray/workspace/Starfall/DeFCN-Megengine/ckpt" --tag 'poto_crowdhuman_3dmf_gn_aux' --dataset_name 'crowdhuamn' -n 2 -b 2 -j 4

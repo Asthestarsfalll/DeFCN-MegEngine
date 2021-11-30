@@ -1,0 +1,1 @@
+python ./train.py -d "./data/coco" -s "./ckpt" -tag 'poto_coco_3dmf_wogn' -n 4 -b 8 -m True --gn False --aux False

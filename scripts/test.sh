@@ -1,0 +1,1 @@
+python test.py -w './ckpt/xxx.pkl' -n 1 -d './data' -j './ckpt/xxx.json'

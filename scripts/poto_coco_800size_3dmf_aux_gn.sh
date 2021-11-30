@@ -1,0 +1,1 @@
+python ./train.py -d "./data/coco" -s "./ckpt" --tag 'poto_coco_3dmf_aux_gn' -n 2 -b 2 -j 4

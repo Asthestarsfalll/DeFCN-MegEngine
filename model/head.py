@@ -24,7 +24,7 @@ class DeFCNHead(M.Module):
         num_anchors = [cfg.num_anchors] * len(input_shape)
 
         assert (
-                len(set(num_anchors)) == 1
+            len(set(num_anchors)) == 1
         ), "not support different number of anchors between levels"
         num_anchors = num_anchors[0]
 

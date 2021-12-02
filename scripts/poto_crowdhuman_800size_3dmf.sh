@@ -1,1 +1,1 @@
-python ./train.py -d "./data/crowdhuamn" -s "./ckpt" -tag 'poto_crowdhuman_3dmf' -n 4 -b 8 --aux False --dataset_name 'crowdhuamn'
+python ./train.py --dataset_dir ./data/ --save_path ./ckpt --tag poto_crowdhuman_3dmf --device 2 --batch-size 2 --aux False --dataset_name crowdhuman

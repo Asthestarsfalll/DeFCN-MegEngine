@@ -9,16 +9,15 @@
 import argparse
 import json
 import os
-from tqdm import tqdm
 
 import megengine as mge
 import megengine.distributed as dist
 from megengine.data import DataLoader
-
 from megengine.data.dataset import COCO as COCOdata
+from tqdm import tqdm
+
 from CrowdHuman import CrowdHuman
 from dataset import DetEvaluator, InferenceSampler
-
 from model import build_network
 
 logger = mge.get_logger(__name__)
@@ -28,6 +27,7 @@ data_mapper = dict(
     coco=COCOdata,
     crowdhuman=CrowdHuman
 )
+
 
 def make_parser():
     parser = argparse.ArgumentParser()
@@ -65,7 +65,8 @@ def main():
     print("import COCO")
     parser = make_parser()
     args = parser.parse_args()
-    cfg, model = build_network(args.mf, args.gn, args.aux, args.dataset_name, dist.get_rank(), True)
+    cfg, model = build_network(
+        args.mf, args.gn, args.aux, args.dataset_name, dist.get_rank(), True)
     logger.info(repr(cfg))
     if args.weight_file:
         args.start_epoch = args.end_epoch = -1
@@ -170,7 +171,8 @@ def build_dataloader(dataset_dir, cfg):
         order=["image", "info"],
     )
     val_sampler = InferenceSampler(val_dataset, 1)
-    val_dataloader = DataLoader(val_dataset, sampler=val_sampler, num_workers=2)
+    val_dataloader = DataLoader(
+        val_dataset, sampler=val_sampler, num_workers=2)
     return val_dataloader
 
 

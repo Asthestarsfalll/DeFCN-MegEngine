@@ -1,5 +1,6 @@
-from .defcn import DeFCN
 from .config import DeFCNConfig
+from .defcn import DeFCN
+
 
 def build_network(use_3dmf=True, use_gn=True, use_auxloss=True,
                   dataset_name='coco', rank=0, resume=None):
@@ -16,12 +17,12 @@ def build_network(use_3dmf=True, use_gn=True, use_auxloss=True,
         base_config.train_dataset = dict(
             name="crowdhuman",
             root="Images",
-            ann_file="CrowdHuman/annotation_train.json",
+            ann_file="annotation_train.json",
         )
         base_config.test_dataset = dict(
             name="crowdhuman",
             root="Images",
-            ann_file="CrowdHuman/annotation_val.json"
+            ann_file="annotation_val.json"
         )
         base_config.center_sampling_radius = 0.0  # inside gt box
         base_config.train_image_short_size = (800,)

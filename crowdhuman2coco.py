@@ -1,6 +1,7 @@
-import json
 import argparse
+import json
 import os
+
 import cv2 as cv
 
 
@@ -14,13 +15,13 @@ def make_parser():
     )
     parser.add_argument(
         "-o", "--odgt_path",
-        default=None,
+        default='xxx.odgt',
         type=str,
         help="the path of CrowdHuman odgt file"
     )
     parser.add_argument(
         "-s", "--save_path",
-        default=None,
+        default='xxx.json',
         type=str,
         help='the path to save json file'
     )
@@ -77,15 +78,17 @@ def make_parser():
 
 def readlines(filename):
     print("start read odgt")
-    with open(filename,'r') as f:
+    with open(filename, 'r') as f:
         lines = f.readlines()
     name = filename.split(os.sep)[-1].split('.')[0].split('_')[-1]
     print(f"{len(lines)} images in CrowdHuman {name} dataset")
     return [json.loads(line.strip('\n')) for line in lines]
 
-def crowdhuman2coco(args, odgt_path, json_path ,data_path):
-    records = readlines(odgt_path) # A list contains dicts
-    json_dict = {"images": [], "annotations": [], "categories": []}  # coco format
+
+def crowdhuman2coco(args, odgt_path, json_path, data_path):
+    records = readlines(odgt_path)  # A list contains dicts
+    json_dict = {"images": [], "annotations": [],
+                 "categories": []}  # coco format
     bbox_id = 1
     categories = {}  # 进行类别记录
     print("start convert")
@@ -137,6 +140,7 @@ def main():
     parser = make_parser()
     args = parser.parse_args()
     crowdhuman2coco(args, args.odgt_path, args.save_path, args.data_path)
+
 
 if __name__ == "__main__":
     main()

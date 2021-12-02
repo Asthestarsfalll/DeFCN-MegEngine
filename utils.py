@@ -1,6 +1,7 @@
 import functools
-from tabulate import tabulate
+
 import numpy as np
+from tabulate import tabulate
 
 
 class AverageMeter:

@@ -1,1 +1,1 @@
-python ./train.py -d "./data/coco" -s "./ckpt" --tag 'poto_coco' -n 4 -b 8 -m False --aux False
+python ./train.py --dataset_dir ./data/ --save_path ./ckpt --tag poto_coco --device 2 --batch_size 2 --mf False --aux False

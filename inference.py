@@ -9,12 +9,12 @@
 import argparse
 
 import cv2
-
 import megengine as mge
-from model import build_network
 from megengine.data.dataset import COCO
+
 from CrowdHuman import CrowdHuman
 from dataset import DetEvaluator
+from model import build_network
 
 logger = mge.get_logger(__name__)
 logger.setLevel("INFO")
@@ -22,6 +22,7 @@ data_mapper = dict(
     coco=COCO,
     crowdhuman=CrowdHuman
 )
+
 
 def make_parser():
     parser = argparse.ArgumentParser()

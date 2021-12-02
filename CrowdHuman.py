@@ -2,10 +2,9 @@ import json
 import os
 from collections import defaultdict
 
-import numpy as np
 import cv2
+import numpy as np
 from megengine.data.dataset import VisionDataset
-
 
 
 class CrowdHuman(VisionDataset):
@@ -16,9 +15,9 @@ class CrowdHuman(VisionDataset):
         "info",
     )
 
-    def __init__(self, root, ann_file, remove_images_without_annotations=True, * , order=None):
+    def __init__(self, root, ann_file, remove_images_without_annotations=True, *, order=None):
         super().__init__(root, order=order, supported_order=self.supported_order)
-        print('load annotation file: ',ann_file)
+        print('load annotation file: ', ann_file)
         with open(ann_file, "r") as f:
             dataset = json.load(f)
 
@@ -48,6 +47,7 @@ class CrowdHuman(VisionDataset):
 
             self.ids = ids
         print("load with order", self.order)
+
     def __getitem__(self, index):
         img_id = self.ids[index]
         anno = self.imgs_with_anns[img_id]
@@ -90,4 +90,4 @@ class CrowdHuman(VisionDataset):
         img_info = self.imgs[img_id]
         return img_info
 
-    class_names=("preson")
+    class_names = ("preson")

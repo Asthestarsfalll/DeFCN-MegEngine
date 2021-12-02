@@ -5,8 +5,9 @@ from megengine import hub
 from scipy.optimize import linear_sum_assignment
 
 from .head import DeFCNHead
-from .utils import (all_reduce_mean, focal_loss, iou_loss, pairwise_iou,
-                    permute_to_N_HWA_K, cat, get_clipped_boxes, get_padded_tensor)
+from .utils import (all_reduce_mean, cat, get_clipped_boxes,
+                    get_padded_tensor, permute_to_N_HWA_K)
+from .loss import focal_loss, iou_loss, pairwise_iou
 
 modelhub = hub.import_module(
     repo_info='megengine/models', git_host='github.com')

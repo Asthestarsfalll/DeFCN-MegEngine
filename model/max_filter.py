@@ -40,6 +40,7 @@ class MaxPool3d(M.Module):
     """
         A simple implement of MaxPool3d based on MaxPool2d and F.max
     """
+
     def __init__(self, kernel_size, padding):
         super(MaxPool3d, self).__init__()
         self.n = kernel_size[0]
@@ -69,9 +70,9 @@ if __name__ == '__main__':
     # ____________ test MaxPool3d ________________ #
     maxpool = MaxPool3d((2, 3, 3), padding=(1, 1, 1))
     import torch.nn as nn
-    maxp = nn.MaxPool3d((2,3,3),padding=(1,1,1),stride=1)
+    maxp = nn.MaxPool3d((2, 3, 3), padding=(1, 1, 1), stride=1)
     import numpy as np
-    x =np.arange(2*6*4*16*20).reshape(2, 6, 4, 16, 20)
+    x = np.arange(2*6*4*16*20).reshape(2, 6, 4, 16, 20)
     x = np.array(x, dtype=np.float32)
     inputs = mge.tensor(x)
     print(inputs.shape)

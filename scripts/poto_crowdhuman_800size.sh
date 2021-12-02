@@ -1,1 +1,1 @@
-python ./train.py -d "./data/crowdhuamn" -s "./ckpt" -tag 'poto_crowdhuman' -n 4 -b 8 -m False --gn False --aux False --dataset_name 'crowdhuamn'
+python ./train.py \--dataset_dir ./data/ \--save_path ./ckpt \--tag poto_crowdhuman \--device 2 \--batch_size 2 \--mf False \--gn False \--aux False \--dataset_name crowdhuman

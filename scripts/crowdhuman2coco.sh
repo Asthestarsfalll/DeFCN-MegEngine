@@ -1,1 +1,0 @@
-python crowdhuam2coco.py -d "./data/CrowdHuman" -o "./data/CrowdHuman/annotations_train.odgt" -s "./data/CrowdHuman/annotations_train.json" --tag "both"

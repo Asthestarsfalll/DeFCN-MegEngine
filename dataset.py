@@ -1,12 +1,14 @@
-import cv2
 import math
 import random
-from megengine.data.dataset import COCO
-import numpy as np
-
 from collections import defaultdict
-from megengine.data import MapSampler, RandomSampler, Collator
+
+import cv2
+import numpy as np
+from megengine.data import Collator, MapSampler, RandomSampler
+from megengine.data.dataset import COCO
+
 from utils import py_cpu_nms
+
 
 class GroupedRandomSampler(RandomSampler):
     def __init__(

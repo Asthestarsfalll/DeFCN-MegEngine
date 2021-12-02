@@ -12,10 +12,10 @@ from megengine.data import transform as T
 from megengine.data.dataset import COCO
 from megengine.optimizer import SGD
 
-from utils import AverageMeter, get_config_info
-from dataset import DetectionPadCollator, GroupedRandomSampler
 from CrowdHuman import CrowdHuman
-from model import build_network, DeFCN, DeFCNConfig
+from dataset import DetectionPadCollator, GroupedRandomSampler
+from model import build_network
+from utils import AverageMeter, get_config_info
 
 logger = mge.logger.get_logger()
 logger.setLevel("INFO")
@@ -54,7 +54,7 @@ def make_parser():
         "-d", "--dataset_dir", default="/data/datasets", type=str,
     )
     parser.add_argument(
-        "-j", "--workers", default=0, type=int,
+        "-j", "--workers", default=4, type=int,
     )
     parser.add_argument(
         "-s", "--save_path", default='./ckpt', type=str,
